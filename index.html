@@ -289,7 +289,7 @@ function select(key, instant){
   const tab = document.querySelector(`.tab[data-co="${key}"]`), pill = document.querySelector(".pill");
   pill.style.width = tab.offsetWidth + "px";
   pill.style.transform = `translateX(${tab.offsetLeft - 4}px)`;
-  history.replaceState(null, "", key === "tmi" ? "#tmi" : location.pathname);
+  history.replaceState(null, "", location.pathname + location.search + (key === "tmi" ? "#tmi" : ""));
 }
 
 document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => { select(t.dataset.co); window.scrollTo({top:0,behavior:"smooth"}); }));
